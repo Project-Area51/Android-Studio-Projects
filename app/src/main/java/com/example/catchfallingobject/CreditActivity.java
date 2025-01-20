@@ -11,6 +11,6 @@ public class CreditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_credit);
 
         TextView creditText = findViewById(R.id.creditText);
-        creditText.setText("Directed by:\n\n- Saral Maxwell.M \n\n\n Written by:\\n\\n- Avani\\n- Jeevitha \"\n\n\nCreated by:\n\n- Rahul Prasad.R\n- Eswaran S ");
+        creditText.setText("Directed by:\n\n- Saral Maxwell.M \n\n\n Written by:\n\n- Avani\n- Jeevitha.A \n\n\nCreated by:\n\n- Rahul Prasad.R\n- Eswaran S ");
     }
 }

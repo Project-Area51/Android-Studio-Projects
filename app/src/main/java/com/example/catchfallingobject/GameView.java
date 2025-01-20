@@ -171,7 +171,7 @@ public GameView(Context context, AttributeSet attrs) {
 
     private void update() {
         objectY += objectSpeed;  // Update falling speed
-        boomY += objectSpeed;   // Update boom speed
+        boomY += boomSpeed;   // Update boom speed
         objectRotation += 10;  // Update rotation angle
         if (objectRotation >= 360) {
             objectRotation = 0;
