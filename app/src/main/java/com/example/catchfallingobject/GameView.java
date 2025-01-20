@@ -168,22 +168,21 @@ public GameView(Context context, AttributeSet attrs) {
         // Update object and boom positions
         update();
     }
-
     private void update() {
         objectY += objectSpeed;  // Update falling speed
-        boomY += boomSpeed;   // Update boom speed
-        objectRotation += 10;  // Update rotation angle
+        boomY += boomSpeed;      // Update boom speed
+        objectRotation += 10;    // Update rotation angle
         if (objectRotation >= 360) {
             objectRotation = 0;
         }
-        boomRotation += 10;  // Update boom rotation angle
+        boomRotation += 10;      // Update boom rotation angle
         if (boomRotation >= 360) {
             boomRotation = 0;
         }
 
         // Gradually increase object speed
         if (score > 0 && score % 10 == 0) {
-            objectSpeed = Math.min(objectSpeed + 2,20); // Cap speed at 50
+            objectSpeed = Math.min(objectSpeed + 2, 20); // Cap speed at 20
         }
 
         // Decrease spawn interval every 50 points
@@ -208,15 +207,19 @@ public GameView(Context context, AttributeSet attrs) {
             return;
         }
 
-        // Check if boom missed
+        // Check if boom missed the basket and falls off-screen
+        if (boomY > screenHeight) {
+            resetBoom(); // Reset the bomb position
+        }
+
+        // Check if object missed the basket and falls off-screen
         if (objectY > screenHeight) {
-            isGameOver = true;
-            invalidate();
-            return;
+            resetObject(); // Reset the object position
         }
 
         invalidate();  // Redraw the game view
     }
+
 
     private void resetObject() {
         objectX = random.nextInt(screenWidth - objectSize);
